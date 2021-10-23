@@ -1,11 +1,6 @@
 import 'source-map-support/register';
-import { DefineSchema } from 'koishi-utils-schemagen';
-import {
-  PicResult,
-  PicSource,
-  PicSourceConfig,
-  PicSourceInfo,
-} from 'koishi-plugin-pics';
+import { DefineSchema, schemaFromClass } from 'koishi-utils-schemagen';
+import { PicSourceConfig, PicSourceInfo } from 'koishi-plugin-pics';
 import { Context } from 'koishi';
 import { LocalSource } from './LocalSource';
 
@@ -45,8 +40,15 @@ export class LocalSourceConfig
 
   registerInstance(ctx: Context) {
     const instance = new LocalSource(ctx, this);
+    ctx
+      .logger('picsource-localfs')
+      .info(`Registered localfs pic source ${instance.name}.`);
+    if (ctx.pics) {
+      ctx.pics.addSource(instance, ctx);
+    }
     ctx.on('service/pics', () => {
       if (!ctx.pics) {
+        ctx.logger('picsource-localfs').warn(`Pics container not found.`);
         return;
       }
       ctx.pics.addSource(instance, ctx);

@@ -28,5 +28,6 @@ module.exports = {
   externals: {
     koishi: 'koishi',
     'koishi-plugin-pics': 'koishi-plugin-pics',
+    'koishi-utils-schemagen': 'koishi-utils-schemagen',
   },
 };

@@ -26,11 +26,12 @@
   },
   "homepage": "https://code.mycard.moe/3rdeye/koishi-plugin-picsource-localfs",
   "dependencies": {
+    "koishi-utils-schemagen": "^1.1.7",
     "source-map-support": "^0.5.20"
   },
   "peerDependencies": {
     "koishi": "^4.0.0-alpha.11",
-    "koishi-plugin-pics": "^1.0.0"
+    "koishi-plugin-pics": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^16.11.4",
@@ -40,8 +41,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
     "koishi": "^4.0.0-alpha.11",
-    "koishi-plugin-pics": "^1.0.0",
-    "koishi-utils-schemagen": "^1.1.5",
+    "koishi-plugin-pics": "^1.0.4",
     "prettier": "^2.4.1",
     "raw-loader": "^4.0.2",
     "read-dir-deep": "^7.0.1",

@@ -13,12 +13,14 @@ export class LocalSource extends PicSource {
 
   async randomPic(picTags: string[]): Promise<PicResult> {
     const absolutePath = path.resolve(process.cwd(), this.config.path);
-    const files = await readDirDeep(absolutePath, {
-      absolute: true,
-      patterns: this.config.patterns,
-      gitignore: false,
-      ignore: this.config.exclude,
-    });
+    const files = (
+      await readDirDeep(absolutePath, {
+        absolute: true,
+        patterns: this.config.patterns,
+        gitignore: false,
+        ignore: this.config.exclude,
+      })
+    ).filter((f) => picTags.every((t) => f.includes(t)));
     if (!files.length) {
       return null;
     }
