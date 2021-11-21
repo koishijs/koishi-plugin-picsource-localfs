@@ -4,7 +4,6 @@ import {
   PicSourceLocalFSPluginConfig,
   PicSourceLocalFSPluginConfigLike,
 } from './config';
-import { schemaFromClass, schemaTransform } from 'koishi-utils-schemagen';
 
 export class PicSourceLocalFSPlugin {
   private config: PicSourceLocalFSPluginConfig;
@@ -13,9 +12,9 @@ export class PicSourceLocalFSPlugin {
   schema: Schema<PicSourceLocalFSPluginConfigLike> = schemaFromClass(
     PicSourceLocalFSPluginConfig,
   );
-  apply(ctx: Context, config: PicSourceLocalFSPluginConfigLike) {
+  apply(ctx: Context, config: PicSourceLocalFSPluginConfig) {
     this.ctx = ctx;
-    this.config = schemaTransform(PicSourceLocalFSPluginConfig, config);
+    this.config = config;
     this.config.sources.forEach((s) => s.registerInstance(ctx));
   }
 }

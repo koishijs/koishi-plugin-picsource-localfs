@@ -1,8 +1,8 @@
 import 'source-map-support/register';
-import { DefineSchema, schemaFromClass } from 'koishi-utils-schemagen';
 import { PicSourceConfig, PicSourceInfo } from 'koishi-plugin-pics';
 import { Context } from 'koishi';
 import { LocalSource } from './LocalSource';
+import { DefineSchema, RegisterSchema } from 'schemastery-gen';
 
 export interface LocalSourceConfigLike extends PicSourceInfo {
   path: string;
@@ -11,6 +11,7 @@ export interface LocalSourceConfigLike extends PicSourceInfo {
   displayFilename?: boolean;
 }
 
+@RegisterSchema()
 export class LocalSourceConfig
   extends PicSourceConfig
   implements LocalSourceConfigLike {
