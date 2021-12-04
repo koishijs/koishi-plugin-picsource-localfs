@@ -9,6 +9,7 @@ export * from './LocalSource';
 export const name = 'picsource-localfs';
 const plugin = new PicSourceLocalFSPlugin();
 export const schema = plugin.schema;
+export const using = ['pics'];
 export function apply(ctx: Context, config: PicSourceLocalFSPluginConfig) {
   ctx.plugin(plugin, config);
 }
