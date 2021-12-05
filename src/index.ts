@@ -1,7 +1,10 @@
 import 'source-map-support/register';
 import { Context } from 'koishi';
 import { PicSourceLocalFSPlugin } from './plugin';
-import { PicSourceLocalFSPluginConfig, PicSourceLocalFSPluginConfigLike } from './config';
+import {
+  PicSourceLocalFSPluginConfig,
+  PicSourceLocalFSPluginConfigLike,
+} from './config';
 export * from './config';
 export * from './plugin';
 export * from './LocalSource';

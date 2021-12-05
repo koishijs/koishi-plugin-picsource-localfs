@@ -16,6 +16,9 @@ export class LocalSourceConfig
   extends PicSourceConfig
   implements LocalSourceConfigLike
 {
+  constructor(config: Partial<LocalSourceConfig>) {
+    super();
+  }
   @DefineSchema({ description: '目录路径', required: true })
   path: string;
   @DefineSchema({
