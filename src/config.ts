@@ -14,11 +14,13 @@ export interface LocalSourceConfigLike extends PicSourceInfo {
 @RegisterSchema()
 export class LocalSourceConfig
   extends PicSourceConfig
-  implements LocalSourceConfigLike {
+  implements LocalSourceConfigLike
+{
   @DefineSchema({ description: '目录路径', required: true })
   path: string;
   @DefineSchema({
-    description: '允许的文件后缀。使用 `*` 表示当前目录，`**` 表示递归所有子目录。',
+    description:
+      '允许的文件后缀。使用 `*` 表示当前目录，`**` 表示递归所有子目录。',
     type: 'string',
     default: ['**.jpg', '**.png'],
   })
@@ -53,7 +55,12 @@ export interface PicSourceLocalFSPluginConfigLike {
 }
 
 export class PicSourceLocalFSPluginConfig
-  implements PicSourceLocalFSPluginConfigLike {
-  @DefineSchema({ description: '目录定义', type: LocalSourceConfig, required: true })
+  implements PicSourceLocalFSPluginConfigLike
+{
+  @DefineSchema({
+    description: '目录定义',
+    type: LocalSourceConfig,
+    required: true,
+  })
   sources: LocalSourceConfig[];
 }
