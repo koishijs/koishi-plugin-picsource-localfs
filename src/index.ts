@@ -1,18 +1,22 @@
 import 'source-map-support/register';
-import { Context } from 'koishi';
-import { PicSourceLocalFSPlugin } from './plugin';
+import { PicSourceLocalFSPluginConfig } from './config';
 import {
-  PicSourceLocalFSPluginConfig,
-  PicSourceLocalFSPluginConfigLike,
-} from './config';
-export * from './config';
-export * from './plugin';
-export * from './LocalSource';
+  BasePlugin,
+  DefinePlugin,
+  LifecycleEvents,
+  UsingService,
+} from 'koishi-thirdeye';
 
-export const name = 'picsource-localfs';
-const plugin = new PicSourceLocalFSPlugin();
-export const Config = plugin.schema;
-export const using = ['pics'];
-export function apply(ctx: Context, config: PicSourceLocalFSPluginConfig) {
-  ctx.plugin(plugin, config);
+@UsingService('pics')
+@DefinePlugin({
+  name: 'picsource-localfs',
+  schema: PicSourceLocalFSPluginConfig,
+})
+export default class PicSourceLocal
+  extends BasePlugin<PicSourceLocalFSPluginConfig>
+  implements LifecycleEvents
+{
+  onApply() {
+    this.config.sources.forEach((s) => s.registerInstance(this.ctx));
+  }
 }

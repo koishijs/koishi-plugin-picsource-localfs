@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/koishijs/koishi-plugin-picsource-localfs",
   "dependencies": {
+    "koishi-thirdeye": "^8.2.1",
     "read-dir-deep": "^7.0.1",
-    "schemastery-gen": "^2.4.1",
     "source-map-support": "^0.5.20"
   },
   "peerDependencies": {
