@@ -1,5 +1,8 @@
 import 'source-map-support/register';
-import { PicSourceLocalFSPluginConfig } from './config';
+import {
+  PicSourceLocalFSPluginConfig,
+  PicSourceLocalFSPluginConfigLike,
+} from './config';
 import {
   BasePlugin,
   DefinePlugin,
@@ -13,7 +16,10 @@ import {
   schema: PicSourceLocalFSPluginConfig,
 })
 export default class PicSourceLocal
-  extends BasePlugin<PicSourceLocalFSPluginConfig>
+  extends BasePlugin<
+    PicSourceLocalFSPluginConfig,
+    PicSourceLocalFSPluginConfigLike
+  >
   implements LifecycleEvents
 {
   onApply() {
