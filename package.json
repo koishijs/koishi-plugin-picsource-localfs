@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-picsource-localfs",
-  "version": "8.2.1",
+  "version": "8.2.2",
   "description": "Koishi 的本地图源插件",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
