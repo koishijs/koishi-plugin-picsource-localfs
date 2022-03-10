@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-picsource-localfs",
   "version": "8.4.2",
-  "description": "Koishi 的本地图源插件",
+  "description": "Picture source from local filesystem.",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/koishijs/koishi-plugin-picsource-localfs",
   "dependencies": {
-    "koishi-thirdeye": "^9.1.1",
+    "koishi-thirdeye": "^9.2.4",
     "read-dir-deep": "^7.0.1",
     "source-map-support": "^0.5.20"
   },
   "peerDependencies": {
-    "koishi": "^4.4.0",
+    "koishi": "^4.4.1",
     "koishi-plugin-pics": "^8.5.1"
   },
   "devDependencies": {
