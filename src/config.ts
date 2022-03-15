@@ -1,4 +1,4 @@
-import 'source-map-support/register';
+// import 'source-map-support/register';
 import { PicSourceConfig, PicSourceInfo } from 'koishi-plugin-pics';
 import { Context } from 'koishi';
 import { LocalSource } from './LocalSource';
