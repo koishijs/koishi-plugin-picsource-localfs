@@ -17,7 +17,7 @@ export class LocalSourceConfig
   implements LocalSourceConfigLike
 {
   constructor(config: LocalSourceConfigLike) {
-    super();
+    super(config);
   }
   @DefineSchema({ description: '目录路径', required: true })
   path: string;
