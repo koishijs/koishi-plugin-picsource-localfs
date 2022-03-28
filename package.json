@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-picsource-localfs",
-  "version": "8.5.4",
+  "version": "8.5.5",
   "description": "Picture source from local filesystem.",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
