@@ -27,7 +27,7 @@ app.plugin(ExtrasInDev);
 
 // Target plugin
 app.plugin(TargetPlugin, {
-  sources: [{ name: 'ygopro', isDefault: true, path: './dev/test-pics' }],
+  instances: [{ name: 'ygopro', isDefault: true, path: './dev/test-pics' }],
 });
 
 app.start();

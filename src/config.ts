@@ -1,22 +1,10 @@
 // import 'source-map-support/register';
-import { PicSourceConfig, PicSourceInfo } from 'koishi-plugin-pics';
-import { Context } from 'koishi';
-import { LocalSource } from './LocalSource';
+import { PicSourceConfig } from 'koishi-plugin-pics';
 import { DefineSchema, RegisterSchema } from 'schemastery-gen';
 
-export interface LocalSourceConfigLike extends PicSourceInfo {
-  path: string;
-  patterns?: string[];
-  exclude?: string[];
-  displayFilename?: boolean;
-}
-
 @RegisterSchema()
-export class LocalSourceConfig
-  extends PicSourceConfig
-  implements LocalSourceConfigLike
-{
-  constructor(config: LocalSourceConfigLike) {
+export class LocalSourceConfig extends PicSourceConfig {
+  constructor(config: Partial<LocalSourceConfig>) {
     super(config);
   }
   @DefineSchema({ description: '目录路径', required: true })
@@ -43,27 +31,4 @@ export class LocalSourceConfig
   exclude: string[];
   @DefineSchema({ description: '是否显示文件名', default: true })
   displayFilename: boolean;
-
-  registerInstance(ctx: Context) {
-    const instance = new LocalSource(ctx, this);
-    ctx
-      .logger('picsource-localfs')
-      .info(`Registered localfs pic source ${instance.name}.`);
-    ctx.pics.addSource(instance, ctx);
-  }
-}
-
-export interface PicSourceLocalFSPluginConfigLike {
-  sources: LocalSourceConfigLike[];
-}
-
-export class PicSourceLocalFSPluginConfig
-  implements PicSourceLocalFSPluginConfigLike
-{
-  @DefineSchema({
-    description: '目录定义',
-    type: LocalSourceConfig,
-    required: true,
-  })
-  sources: LocalSourceConfig[];
 }
