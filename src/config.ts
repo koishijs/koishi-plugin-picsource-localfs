@@ -3,10 +3,9 @@ import { PicSourceConfig } from 'koishi-plugin-pics';
 import { DefineSchema, RegisterSchema } from 'schemastery-gen';
 
 @RegisterSchema()
-export class LocalSourceConfig extends PicSourceConfig {
-  constructor(config: Partial<LocalSourceConfig>) {
-    super(config);
-  }
+export class LocalSourceConfig {
+  constructor(config: Partial<LocalSourceConfig>) {}
+
   @DefineSchema({ description: '目录路径', required: true })
   path: string;
   @DefineSchema({
