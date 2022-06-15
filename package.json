@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/koishijs/koishi-plugin-picsource-localfs",
   "dependencies": {
-    "koishi-thirdeye": "^10.2.1",
+    "koishi-thirdeye": "^10.2.5",
     "read-dir-deep": "^7.0.1"
   },
   "peerDependencies": {
-    "koishi": "^4.7.0",
-    "koishi-plugin-pics": "^9.3.0"
+    "koishi": "^4.7.4",
+    "koishi-plugin-pics": "^9.3.3"
   },
   "devDependencies": {
     "@koishijs/plugin-cache-lru": "^1.0.0-rc.0",
