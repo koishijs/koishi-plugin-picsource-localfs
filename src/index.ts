@@ -1,13 +1,13 @@
 import { Random } from 'koishi';
 import { PicResult, PicSourcePlugin } from 'koishi-plugin-pics';
-import { DefinePlugin, MultiInstancePlugin } from 'koishi-thirdeye';
+import { DefinePlugin } from 'koishi-thirdeye';
 import path from 'path';
 import { readDirDeep } from 'read-dir-deep';
 import { LocalSourceConfig } from './config';
 import fs from 'fs';
 
 @DefinePlugin()
-export class LocalSource extends PicSourcePlugin(LocalSourceConfig) {
+export default class LocalSource extends PicSourcePlugin(LocalSourceConfig) {
   async randomPic(picTags: string[]): Promise<PicResult> {
     const absolutePath = path.resolve(process.cwd(), this.config.path);
     const files = (
@@ -33,8 +33,3 @@ export class LocalSource extends PicSourcePlugin(LocalSourceConfig) {
     };
   }
 }
-
-@DefinePlugin()
-export default class LocalSourcePlugin extends MultiInstancePlugin(
-  LocalSource,
-) {}
