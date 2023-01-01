@@ -22,11 +22,9 @@ export default class LocalSource extends PicSourcePlugin(LocalSourceConfig) {
       return null;
     }
     const filename = Random.pick(files);
-    const fileBase64 = (await fs.promises.readFile(filename)).toString(
-      'base64',
-    );
+    const data = await this.pics.urlToBuffer(`file://${filename}`);
     return {
-      url: `base64://${fileBase64}`,
+      url: await this.pics.bufferToUrl(data.buffer, data.mime),
       description: this.config.displayFilename
         ? path.basename(filename)
         : undefined,
